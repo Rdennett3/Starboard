@@ -1,0 +1,80 @@
+{% comment %} <h1>{{ page_title }}</h1> {% endcomment %}
+<div class="responsive-collection-container">
+<ul class="responsive-collection-outer">
+  {%- for collection in collections -%}
+    <li>
+      <!--
+        These control flow tags check to see if there is a featured image for a collection.
+        If there isn't one, then we assign the image from the first product in the collection.
+      -->
+      {%- if collection.image -%}
+        {%- assign collection_image = collection.image -%}
+      {%- elsif collection.products.first and collection.products.first.images != empty -%}
+        {%- assign collection_image = collection.products.first.featured_image -%}
+      {%- else -%}
+        {%- assign collection_image = blank -%}
+      {%- endif -%}
+
+      <a href="{{ collection.url }}">
+        {{ collection.title }}
+        <img src="{{ collection_image | img_url: '480x' }}" alt="">
+      </a>
+    </li>
+  {%- endfor -%}
+</ul>
+</div>
+
+<style>
+    .responsive-collection-container{
+        width:100%;
+        height:auto;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .responsive-collection-outer{
+        width:95%;
+        height:auto;
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        grid-template-rows:auto;
+        grid-template-areas:". . . .";
+        gap:20px;
+        margin:0;
+        padding:0;
+    }
+
+    .responsive-collection-outer li{
+        border:1px solid black;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+}
+
+    .responsive-collection-outer li a{
+        font-size:36px;
+        text-decoration:none;
+        text-align:center;
+        list-style-type:none;
+        color:#000;
+    }
+
+    .responsive-collection-outer li a img{
+    width:100%;
+    height:auto;
+}
+
+</style>
+
+{% schema %}
+{
+
+    "name": "collection-list-2",
+    "tag": "section",
+    "class": "section",
+    "settings":[
+
+    ]
+}
+{% endschema %}
+
