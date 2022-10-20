@@ -108,7 +108,7 @@
       "type": "call-to-action",
       "settings": {
         "text-box": "This is a call to action",
-        "link": "https:\/\/google.com",
+        "link": "https:\/\/shopify.com",
         "linktext": "Clicky Poo"
       }
     }
