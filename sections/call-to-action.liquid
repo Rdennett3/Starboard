@@ -5,6 +5,17 @@
     </a>
 </div>
 
+{% stylesheet %}
+  .ctaouter{
+    width:100%;
+    height:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:red;
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
     "name": "Call to action",
@@ -36,13 +47,3 @@
     ]
 }
 {% endschema %}
-{% stylesheet %}
-  .ctaouter{
-    width:100%;
-    height:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:red;
-  }
-{% endstylesheet %}
